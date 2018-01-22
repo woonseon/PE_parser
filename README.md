@@ -2,6 +2,8 @@
 
 Requirements
 
+    python2
+    
     pip install pefile
 
 
