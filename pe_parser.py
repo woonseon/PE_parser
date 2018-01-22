@@ -7,12 +7,20 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def total_pe(pe):
+	f = open("./total_pe.txt", 'w')
+	f.write(str(pe))
+	f.write("\n")
+	f.close()
 	# total pe 출력
 	print "=============================================="
 	print pe
 	print "=============================================="
 
 def DOS_HEADER(pe):
+	f = open("./Dos_Header.txt", 'w')
+	f.write(str(pe.DOS_HEADER))
+	f.write("\n")
+	f.close()
 	# IMAGE_DOS_HEADER 출력
 	print "=============================================="
 	print pe.DOS_HEADER
@@ -25,12 +33,20 @@ def NT_HEADERS(pe):
 	print "=============================================="
 
 def FILE_HEADER(pe):
+	f = open("./file_header.txt", 'w')
+	f.write(str(pe.FILE_HEADER))
+	f.write("\n")
+	f.close()
 	# IMAGE_FILE_HEADER 출력
 	print "=============================================="
 	print pe.FILE_HEADER
 	print "=============================================="
 
 def NumberOfSections(pe):
+	f = open("./number_of_section.txt", 'w')
+	f.write(str(pe.FILE_HEADER.NumberOfSections))
+	f.write("\n")
+	f.close()
 	# section number
 	print "=============================================="
 	print u"섹션 개수:"
@@ -38,17 +54,24 @@ def NumberOfSections(pe):
 	print "=============================================="
 
 def OPTIONAL_HEADER(pe):
+	f = open("./Optional_Header.txt", 'w')
+	f.write(str(pe.OPTIONAL_HEADER))
+	f.write("\n")
+	f.close()
 	print "=============================================="	
 	print pe.OPTIONAL_HEADER
 	print "=============================================="
 
 def Setion_Contents(pe):
+	f = open("./Section_Contents.txt", 'ab')
 	print "=============================================="
 	print "OPTIONAL_HEADER"
 	for section in pe.sections:
-	    #print section.Name + "\t" + hex(section.VirtualAddress)
-	    print section
-	    print "=============================================="
+		f.write(str(section))
+		f.write("\n")
+		print section
+		print "=============================================="
+	f.close()
 	print "=============================================="
 
 def select_menu():
